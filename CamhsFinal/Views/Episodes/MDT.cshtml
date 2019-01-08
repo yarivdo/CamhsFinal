@@ -1,0 +1,65 @@
+﻿@model Episode
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2 class="alert alert-info">@ViewBag.Name</h2>
+<h3 class="alert alert-info">@ViewBag.detailsToPass</h3>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MDT">
+
+            <input type="hidden" asp-for="ReferralID" />
+            <input type="hidden" asp-for="ClientID" />
+            <div class="form-group">
+                <label asp-for="MdtDate" class="control-label"></label>
+                <input asp-for="MdtDate" class="form-control" />
+                <span asp-validation-for="MdtDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Referral.Content" class="control-label"></label>
+                <input asp-for="Referral.Content" class="form-control" >
+                <span asp-validation-for="Referral.Content" class="text-danger"></span>
+            </div>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EpisodeID" />
+            <div class="form-group">
+                <label asp-for="Grade" class="control-label"></label>
+                <input asp-for="Grade" class="form-control" />
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Outcome" class="control-label"></label>
+                <select asp-for="Outcome" class="form-control">
+                    <option value="0">MDT</option>
+                    <option value="1">Wait List</option>
+                    <option value="2">More Info</option>
+                    <option value="3">Deferred</option>
+                    <option value="4">Closed</option>
+                    <option value="5">Other</option>
+                </select>
+                <span asp-validation-for="Outcome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keyworker" class="control-label"></label>
+                <input asp-for="Keyworker" class="form-control" />
+                <span asp-validation-for="Keyworker" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                <input asp-for="Comments" class="form-control" />
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

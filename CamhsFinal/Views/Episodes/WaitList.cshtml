@@ -1,0 +1,50 @@
+﻿@model System.Collections.Generic.List<CamhsFinal.Models.Episode>
+
+
+<h2>Wait List</h2>
+
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Referred</th>
+        <th>NHI</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Age</th>
+        <th>Location</th>
+        <th>Content</th>
+        <th>Grade</th>
+        <th>Comments</th>
+        <th>Edit</th>
+    </tr>
+    @{ int rowNum = 0;}
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@{rowNum++;} @rowNum</td>
+        <td>@Html.DisplayFor(modelItem => item.Referral.Date)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.NHI)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.First)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.Last)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.Age)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.Location)</td>
+        <td>@Html.DisplayFor(modelItem => item.Referral.Content)</td>
+        @if (item.Grade >= 1.0 && item.Grade <= 1.99)
+        {
+            <td style="background-color: palevioletred">@Html.DisplayFor(modelItem => item.Grade)</td>
+        }
+        @if (item.Grade >= 2.0 && item.Grade <= 2.99)
+        {
+            <td style="background-color: lemonchiffon">@Html.DisplayFor(modelItem => item.Grade)</td>
+        }
+        @if (item.Grade >= 3.0)
+        {
+            <td style="background-color: yellowgreen">@Html.DisplayFor(modelItem => item.Grade)</td>
+        }
+        
+        <td>@Html.DisplayFor(modelItem => item.Comments)</td>
+        <td><a asp-controller="Episodes" asp-action="MDT" asp-route-id="@item.ReferralID">Edit</a></td>
+    </tr>
+
+    }
+</table>

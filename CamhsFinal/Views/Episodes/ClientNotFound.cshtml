@@ -1,0 +1,17 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "Client Not Found";
+    Layout = "_Layout";
+}
+
+<h2>Your search did not find an existing client</h2>
+
+<p>The NHI you have entered is not in our system .</p>
+<hr />
+<p>If you want to search again - please try here: </p>
+<input type="button" value="Search again" onclick="location.href = '@Url.Action("FindClient", "Episodes")'" class="btn btn-primary" />
+
+<hr />
+<p>If you would like to create a new client based on this NHI: </p>
+<input type="button" value="New Client" onclick="location.href = '@Url.Action("Create", "Clients")'" class="btn btn-primary" />

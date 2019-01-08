@@ -1,0 +1,28 @@
+﻿@model System.Collections.Generic.List<CamhsFinal.Models.Episode>
+
+
+
+<h2>MDT Meeting for @DateTime.Today</h2>
+
+<table class="table">
+    <tr>
+        <th>NHI</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Age</th>
+        <th>Location</th>
+        <th>Select</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Client.NHI)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.First)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.Last)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.Age)</td>
+        <td>@Html.DisplayFor(modelItem => item.Client.Location)</td>
+        <td><a asp-controller="Episodes" asp-action="MDT" asp-route-id="@item.ReferralID">Select</a></td>
+    </tr>
+
+    }
+    </table>

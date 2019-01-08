@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-2">
+        
+            <h2>MDT</h2>
+            <input type="button" value="MDT List" onclick="location.href = '@Url.Action("MdtList", "Episodes")'" class="btn btn-primary" />
+            <hr>
+            <input type="button" value="Wait List" onclick="location.href = '@Url.Action("WaitList", "Episodes")'" class="btn btn-primary" />
+            <hr>
+            <input type="button" value="More-Info" onclick="location.href = '@Url.Action("MoreInfoList", "Episodes")'" class="btn btn-primary" />
+            <hr>
+        
+    </div>
+
+    <div class="col-md-2">
+
+        <h2>Clients</h2>
+
+        <input type="button" value="Search a client" onclick="location.href = '@Url.Action("FindClient", "Episodes")'" class="btn btn-success" />
+        <hr>
+        <input type="button" value="New Client" onclick="location.href = '@Url.Action("Create", "Clients")'" class="btn btn-success" />
+        <hr />
+
+    </div>
+
+</div>

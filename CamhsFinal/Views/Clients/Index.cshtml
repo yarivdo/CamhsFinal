@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CamhsFinal.Models.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Complete list of Clients</h2>
+
+<p>
+    
+    <input type="button" value="Search Clients" onclick="location.href = '@Url.Action("FindClient", "Episodes")'" class="btn btn-primary" />
+    <input type="button" value="New Client" onclick="location.href = '@Url.Action("Create", "Clients")'" class="btn btn-primary" />
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NHI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.First)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.ClientID">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.ClientID">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.ClientID">Delete</a> |
+            <a asp-controller="Episodes" asp-action="newReferral" asp-route-id="@item.ClientID">Add Referral</a>
+
+    </tr>
+}
+    </tbody>
+</table>

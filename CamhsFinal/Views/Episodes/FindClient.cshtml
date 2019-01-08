@@ -1,0 +1,21 @@
+﻿@model CamhsFinal.Models.Episode
+
+
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("FindClient", "Episodes", FormMethod.Post))
+        {
+            <div class="form-group">
+                <p class="form-control">Search by NHI</p>
+                <input type="text" name="NHI" id="NHI" />
+            </div>
+            
+
+            
+            <div class="form-group">
+                <input type="submit" value="FindClient" />
+            </div>
+        }
+    </div>
+</div>
+
